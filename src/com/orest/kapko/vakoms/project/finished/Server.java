@@ -6,6 +6,7 @@ import java.net.*;
 
 class Server {
     public static void main(String args[]) {
+
         String data = "Orest Kapko";
         try {
             ServerSocket srvr = new ServerSocket(1234);
@@ -22,5 +23,7 @@ class Server {
             System.out.print("Whoops! It didn't work!\n");
         }
     }
+
+
 }
 
