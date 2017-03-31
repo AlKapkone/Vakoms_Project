@@ -33,18 +33,6 @@ public class CollectionToJson {
         String jsonUsers = gson.toJson(listOfUsers);
         System.out.println(jsonUsers);
 
-//        ServerSocket s = null;
-//        try {
-//            s = new ServerSocket(7777);
-//            try (OutputStreamWriter out = new OutputStreamWriter(s.getOutputStream(), StandardCharsets.UTF_8)) {
-//                out.write(jsonUsers.toString());
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-
-
 //----------------------------------------------------------------------------------------------------------------------
         // Converts JSON string into a collection of Student object.
         Type type = new TypeToken<List<User>>() {}.getType();

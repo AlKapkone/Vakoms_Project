@@ -18,7 +18,7 @@ class Client {
             String line = null;
             while (!in.ready()) {
             }
-            System.out.println(line = in.readLine()); // Read one line and output it
+            System.out.print(line = in.readLine()); // Read one line and output it
             System.out.print("'\n");
 
             // Converts JSON string into a collection of Users object.
@@ -27,7 +27,8 @@ class Client {
             List<User> usersList = gson.fromJson(line, type);
 
             for (User user : usersList) {
-                System.out.println("User's ID: " + user.getId() + ". " + "User's NAME: " + user.getName() + ". " + "User's Email: " + user.getEmail());
+                System.out.println("User's ID: " + user.getId() + ". " + "User's NAME: " +
+                        user.getName() + ". " + "User's Email: " + user.getEmail());
             }
             in.close();
         }

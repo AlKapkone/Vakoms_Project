@@ -16,6 +16,7 @@ class Server {
         User thirdUser = new User(3,"Tom Kruise", "tommy@gmail.com");
         User fourthUser = new User(4,"Dwane Jonson", "rock.officicial@gmail.com");
         User fifthUser = new User(5,"Hugh Lorie", "hugh2106@gmail.com");
+        User sixthUser = new User(6,"Al Kapone", "al_kap06@gmail.com");
 
         List<User> listOfUsers = new ArrayList<>();
         listOfUsers.add(firstUser);
@@ -23,6 +24,7 @@ class Server {
         listOfUsers.add(thirdUser);
         listOfUsers.add(fourthUser);
         listOfUsers.add(fifthUser);
+        listOfUsers.add(sixthUser);
 
         Gson gson = new Gson();
         String jsonUsers = gson.toJson(listOfUsers);

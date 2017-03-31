@@ -7,10 +7,11 @@ import javax.swing.table.DefaultTableModel;
 
 public class sw10 extends JFrame {
     /** Creates new form sw10 */
-    DefaultTableModel dtm;
+    public DefaultTableModel dtm;
     public sw10() {
         initComponents();
         jTable1.setModel(dtm = new DefaultTableModel());
+        dtm.addColumn("ID");
         dtm.addColumn("Ім'я");
         dtm.addColumn("Email");
     }
@@ -74,8 +75,8 @@ public class sw10 extends JFrame {
             }
         });
 
-        JLabel jLabel1 = new JLabel("Список працівників", SwingConstants.RIGHT);
-        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 28)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 20)); // NOI18N
+        jLabel1.setText("User's List");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,26 +125,32 @@ public class sw10 extends JFrame {
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        JTextField zField = new JTextField(2);
         JTextField xField = new JTextField(15);
         JTextField yField = new JTextField(15);
 
         JPanel myPanel = new JPanel();
+        myPanel.add(new JLabel("ID"));
+        myPanel.add(zField);
+//        myPanel.add(Box.createHorizontalStrut(45)); // a spacer
         myPanel.add(new JLabel("Name:"));
         myPanel.add(xField);
-        myPanel.add(Box.createHorizontalStrut(15)); // a spacer
+//        myPanel.add(Box.createHorizontalStrut(15)); // a spacer
         myPanel.add(new JLabel("Email:"));
         myPanel.add(yField);
+
 
         int result = JOptionPane.showConfirmDialog(null, myPanel,
                 "Please Enter New User's information", JOptionPane.OK_CANCEL_OPTION);
         if (result == JOptionPane.OK_OPTION) {
+            System.out.println("ID is: " + zField.getText());
             System.out.println("The name is: " + xField.getText());
             System.out.println("The email is: " + yField.getText());
         }
-
-        Object row[]=new Object[2];
-        row[0]= xField.getText();
-        row[1]= yField.getText();
+        Object row[]=new Object[3];
+        row[0]= zField.getText();
+        row[1]= xField.getText();
+        row[2]= yField.getText();
         dtm.addRow(row);
     }
 
