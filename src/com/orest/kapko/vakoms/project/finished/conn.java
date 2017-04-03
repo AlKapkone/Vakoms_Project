@@ -12,7 +12,7 @@ public class conn {
     public static ResultSet resSet;
 
     // --------ПІДКЛЮЧЕННЯ ДО БАЗИ ДАНИХ--------
-    public static void Conn() throws ClassNotFoundException, SQLException
+    public static void conToDB() throws ClassNotFoundException, SQLException
     {
         conn = null;
         Class.forName("org.sqlite.JDBC");
@@ -22,7 +22,7 @@ public class conn {
     }
 
     // --------Створення таблиці--------
-    public static void CreateDB() throws ClassNotFoundException, SQLException
+    public static void createDB() throws ClassNotFoundException, SQLException
     {
         statmt = conn.createStatement();
         statmt.execute("CREATE TABLE if not exists 'users' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'phone' INT);");
@@ -30,30 +30,43 @@ public class conn {
         System.out.println("Таблица создана или уже существует.");
     }
 
-
-    // --------Заповнення таблиці--------
-    public static void WriteDB() throws SQLException
+    // --------Оновлення інфи в таблиці--------
+    public static void updateUser() throws SQLException
     {
-        statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Petya', 125453); ");
-        statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Vasya', 321789); ");
-        statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Masha', 456123); ");
+        statmt.execute("UPDATE 'users' SET name = 'Orest', phone = '0000000' WHERE id = 3");
+
+        System.out.println("Інформацію про користувача оновлено");
+    }
+
+    // --------Видалення користувача з таблиці--------
+    public static void deleteUser() throws SQLException
+    {
+        statmt.execute("DELETE FROM 'users' WHERE id = 9");
+
+        System.out.println("Користувача видалено");
+    }
+
+    // --------Додавання нового користувача в таблицю--------
+    public static void addNewUser() throws SQLException
+    {
+        statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Oleg', 125453); ");
 
         System.out.println("Таблица заполнена");
     }
 
     // -------- Вивід таблиці--------
-    public static void ReadDB() throws ClassNotFoundException, SQLException
+    public static void getAllUsers() throws ClassNotFoundException, SQLException
     {
         resSet = statmt.executeQuery("SELECT * FROM users");
 
         while(resSet.next())
         {
             int id = resSet.getInt("id");
-            String  name = resSet.getString("name");
-            String  phone = resSet.getString("phone");
-            System.out.println( "ID = " + id );
-            System.out.println( "name = " + name );
-            System.out.println( "phone = " + phone );
+            String name = resSet.getString("name");
+            String phone = resSet.getString("phone");
+            System.out.println("ID = " + id );
+            System.out.println("name = " + name );
+            System.out.println("phone = " + phone );
             System.out.println();
         }
 
@@ -61,12 +74,11 @@ public class conn {
     }
 
     // --------Закриття--------
-    public static void CloseDB() throws ClassNotFoundException, SQLException
+    public static void closeDB() throws ClassNotFoundException, SQLException
     {
         conn.close();
         statmt.close();
         resSet.close();
-
         System.out.println("Соединения закрыты");
     }
 
