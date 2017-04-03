@@ -3,6 +3,7 @@ package com.orest.kapko.vakoms.project.finished;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.awt.*;
 import java.lang.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -11,6 +12,14 @@ import java.util.List;
 
 class Client {
     public static void main(String args[]) {
+//---------Create Swing Window------------------------------------------------------------------------------------------
+        /* Creates new form sw10 */
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new sw10().setVisible(true);
+            }
+        });
+//----------------------------------------------------------------------------------------------------------------------
         try {
             Socket skt = new Socket("localhost", 1234);
             BufferedReader in = new BufferedReader(new InputStreamReader(skt.getInputStream()));

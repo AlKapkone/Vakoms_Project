@@ -44,7 +44,5 @@ class Server {
             System.out.print("Whoops! It didn't work!\n");
         }
     }
-
-
 }
 

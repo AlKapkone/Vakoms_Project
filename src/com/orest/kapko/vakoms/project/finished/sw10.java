@@ -6,8 +6,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class sw10 extends JFrame {
-    /** Creates new form sw10 */
-    public DefaultTableModel dtm;
+    /* Creates new form sw10 */
+    DefaultTableModel dtm;
     public sw10() {
         initComponents();
         jTable1.setModel(dtm = new DefaultTableModel());
@@ -20,7 +20,7 @@ public class sw10 extends JFrame {
      * initialize the form.
      */
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold default state="collapsed" desc="Generated Code">
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -124,13 +124,13 @@ public class sw10 extends JFrame {
         pack();
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         JTextField zField = new JTextField(2);
         JTextField xField = new JTextField(15);
         JTextField yField = new JTextField(15);
 
         JPanel myPanel = new JPanel();
-        myPanel.add(new JLabel("ID"));
+        myPanel.add(new JLabel("ID:"));
         myPanel.add(zField);
 //        myPanel.add(Box.createHorizontalStrut(45)); // a spacer
         myPanel.add(new JLabel("Name:"));
@@ -154,12 +154,6 @@ public class sw10 extends JFrame {
         dtm.addRow(row);
     }
 
-//    private void jButton1ActionPerformed5(java.awt.event.ActionEvent evt) {
-//        Object row[]=new Object[2];
-//        while((row[0]=JOptionPane.showInputDialog("Enter the name:")).equals(""));
-//        while((row[1]=JOptionPane.showInputDialog("Enter email:")).equals(""));
-//        dtm.addRow(row);
-//    }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
@@ -198,16 +192,7 @@ public class sw10 extends JFrame {
             count++;
         }
     }
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new sw10().setVisible(true);
-            }
-        });
-    }
-
-    // Variables declaration - do not modify
+    // Variables declaration
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -216,5 +201,4 @@ public class sw10 extends JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration
-
 }
