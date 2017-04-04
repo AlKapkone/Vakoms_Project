@@ -8,17 +8,26 @@ import java.lang.*;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.net.*;
+import java.sql.SQLException;
 import java.util.List;
 
 class Client {
-    public static void main(String args[]) {
-//---------Create Swing Window------------------------------------------------------------------------------------------
-        /* Creates new form sw10 */
+    public static void main(String args[]) throws SQLException, ClassNotFoundException {
+//---------Створюємо Swing Window------------------------------------------------------------------------------------------
+        /* Створюємо нову форму Gui */
         EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new sw10().setVisible(true);
+                new Gui().setVisible(true);
             }
         });
+//----------------------------------------------------------------------------------------------------------------------
+        DataBase.conToDB();
+        DataBase.createDB();
+        DataBase.updateUser();
+        DataBase.deleteUser();
+        DataBase.addNewUser();
+        DataBase.getAllUsers();
+        DataBase.closeDB();
 //----------------------------------------------------------------------------------------------------------------------
         try {
             Socket skt = new Socket("localhost", 1234);
@@ -27,7 +36,7 @@ class Client {
             String line = null;
             while (!in.ready()) {
             }
-            System.out.print(line = in.readLine()); // Read one line and output it
+            System.out.print(line = in.readLine()); // Читаємо строку і одразу ж виводимо
             System.out.print("'\n");
 
             // Converts JSON string into a collection of Users object.
@@ -42,7 +51,7 @@ class Client {
             in.close();
         }
         catch(Exception e) {
-            System.out.print("Whoops! It didn't work!\n");
+            System.out.print("Бляха-муха, щось пішло не так!\n");
         }
     }
 }

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class conn {
+public class DataBase {
     public static Connection conn;
     public static Statement statmt;
     public static ResultSet resSet;
@@ -18,22 +18,22 @@ public class conn {
         Class.forName("org.sqlite.JDBC");
         conn = DriverManager.getConnection("jdbc:sqlite:Test.s3db");
 
-        System.out.println("База Подключена!");
+        System.out.println("База Підключена!");
     }
 
     // --------Створення таблиці--------
     public static void createDB() throws ClassNotFoundException, SQLException
     {
         statmt = conn.createStatement();
-        statmt.execute("CREATE TABLE if not exists 'users' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'phone' INT);");
+        statmt.execute("CREATE TABLE if not exists 'users' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'Name' text, 'Email' text);");
 
-        System.out.println("Таблица создана или уже существует.");
+        System.out.println("Таблицю створено або така уже існує.");
     }
 
     // --------Оновлення інфи в таблиці--------
     public static void updateUser() throws SQLException
     {
-        statmt.execute("UPDATE 'users' SET name = 'Orest', phone = '0000000' WHERE id = 3");
+        statmt.execute("UPDATE 'users' SET name = 'Orest', Email = 'kapko2311@gmail.com' WHERE id = 3");
 
         System.out.println("Інформацію про користувача оновлено");
     }
@@ -41,7 +41,7 @@ public class conn {
     // --------Видалення користувача з таблиці--------
     public static void deleteUser() throws SQLException
     {
-        statmt.execute("DELETE FROM 'users' WHERE id = 9");
+        statmt.executeUpdate("DELETE FROM 'users' WHERE id = 9");
 
         System.out.println("Користувача видалено");
     }
@@ -49,9 +49,9 @@ public class conn {
     // --------Додавання нового користувача в таблицю--------
     public static void addNewUser() throws SQLException
     {
-        statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Oleg', 125453); ");
+        statmt.execute("INSERT INTO 'users' ('name', 'Email') VALUES ('Oleg', 'oleg19992@mail.ru'); ");
 
-        System.out.println("Таблица заполнена");
+        System.out.println("Таблицю заповнено");
     }
 
     // -------- Вивід таблиці--------
@@ -63,14 +63,14 @@ public class conn {
         {
             int id = resSet.getInt("id");
             String name = resSet.getString("name");
-            String phone = resSet.getString("phone");
+            String phone = resSet.getString("Email");
             System.out.println("ID = " + id );
             System.out.println("name = " + name );
-            System.out.println("phone = " + phone );
+            System.out.println("Email = " + phone );
             System.out.println();
         }
 
-        System.out.println("Таблица выведена");
+        System.out.println("Таблицю виведено");
     }
 
     // --------Закриття--------
@@ -79,7 +79,6 @@ public class conn {
         conn.close();
         statmt.close();
         resSet.close();
-        System.out.println("Соединения закрыты");
+        System.out.println("Всі з'єднання успішно закрито");
     }
-
 }

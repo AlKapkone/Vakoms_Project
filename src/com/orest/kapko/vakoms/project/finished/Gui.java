@@ -5,10 +5,10 @@ import java.util.Vector;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-public class sw10 extends JFrame {
+public class Gui extends JFrame {
     /* Creates new form sw10 */
     DefaultTableModel dtm;
-    public sw10() {
+    public Gui() {
         initComponents();
         jTable1.setModel(dtm = new DefaultTableModel());
         dtm.addColumn("ID");
@@ -147,7 +147,7 @@ public class sw10 extends JFrame {
             System.out.println("The name is: " + xField.getText());
             System.out.println("The email is: " + yField.getText());
         }
-        Object row[]=new Object[3];
+        Object row[] = new Object[3];
         row[0]= zField.getText();
         row[1]= xField.getText();
         row[2]= yField.getText();
@@ -182,7 +182,7 @@ public class sw10 extends JFrame {
         // TODO add your handling code here:
         int count=0;
         String s = JOptionPane.showInputDialog("Enter the name:");
-        Enumeration rows=dtm.getDataVector().elements();
+        Enumeration rows = dtm.getDataVector().elements();
         while(rows.hasMoreElements())
         {
             if(((Vector)rows.nextElement()).elementAt(0).equals(s))
