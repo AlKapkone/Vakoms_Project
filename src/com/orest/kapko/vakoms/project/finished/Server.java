@@ -32,9 +32,9 @@ class Server {
         try {
             ServerSocket srvr = new ServerSocket(1234);
             Socket skt = srvr.accept();
-            System.out.print("Server has connected!\n");
+            System.out.print("Сервер законектився!\n");
             PrintWriter out = new PrintWriter(skt.getOutputStream(), true);
-            System.out.print("Sending Json-string: '" + jsonUsers + "'\n");
+            System.out.print("Надсилаю Json-строку клієнту: '" + jsonUsers + "'\n");
             out.print(jsonUsers);
             out.close();
             skt.close();
@@ -44,5 +44,7 @@ class Server {
             System.out.print("Whoops! It didn't work!\n");
         }
     }
+
+//    if(аналізуємо тип операції)
 }
 

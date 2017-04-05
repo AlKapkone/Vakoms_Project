@@ -68,7 +68,7 @@ public class Gui extends JFrame {
             }
         });
 
-        jButton4.setText("Search user");
+        jButton4.setText("Get user");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -123,7 +123,7 @@ public class Gui extends JFrame {
 
         pack();
     }
-
+    //------ADD user operation
     public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         JTextField zField = new JTextField(2);
         JTextField xField = new JTextField(15);
@@ -146,6 +146,8 @@ public class Gui extends JFrame {
             System.out.println("ID is: " + zField.getText());
             System.out.println("The name is: " + xField.getText());
             System.out.println("The email is: " + yField.getText());
+
+            Client.doAdd(xField.getText(),yField.getText());
         }
         Object row[] = new Object[3];
         row[0]= zField.getText();
@@ -154,7 +156,7 @@ public class Gui extends JFrame {
         dtm.addRow(row);
     }
 
-
+    //------DELETE user operation
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         int t[]=jTable1.getSelectedRows();
@@ -165,7 +167,7 @@ public class Gui extends JFrame {
         else
             dtm.removeRow(t[0]);
     }
-
+    //------UPDATE user operation
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         int t[]=jTable1.getSelectedRows();
@@ -177,7 +179,7 @@ public class Gui extends JFrame {
                 dtm.removeRow(t[i]);
         }
     }
-
+    //------GET user operation
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         int count=0;
@@ -200,5 +202,4 @@ public class Gui extends JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    // End of variables declaration
 }

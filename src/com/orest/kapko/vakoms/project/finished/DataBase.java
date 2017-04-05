@@ -33,7 +33,7 @@ public class DataBase {
     // --------Оновлення інфи в таблиці--------
     public static void updateUser() throws SQLException
     {
-        statmt.execute("UPDATE 'users' SET name = 'Orest', Email = 'kapko2311@gmail.com' WHERE id = 3");
+        statmt.executeUpdate("UPDATE 'users' SET name = 'Andriy', Email = 'andy_fox@gmail.com' WHERE id = 3");
 
         System.out.println("Інформацію про користувача оновлено");
     }
@@ -41,7 +41,7 @@ public class DataBase {
     // --------Видалення користувача з таблиці--------
     public static void deleteUser() throws SQLException
     {
-        statmt.executeUpdate("DELETE FROM 'users' WHERE id = 9");
+        statmt.execute("DELETE FROM 'users' WHERE id = 9");
 
         System.out.println("Користувача видалено");
     }
@@ -50,6 +50,7 @@ public class DataBase {
     public static void addNewUser() throws SQLException
     {
         statmt.execute("INSERT INTO 'users' ('name', 'Email') VALUES ('Oleg', 'oleg19992@mail.ru'); ");
+        statmt.execute("INSERT INTO 'users' ('name', 'Email') VALUES ('Misha', 'misha_2017@ukr.net'); ");
 
         System.out.println("Таблицю заповнено");
     }
