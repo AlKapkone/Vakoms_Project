@@ -17,8 +17,7 @@ public class Gui extends JFrame {
     }
 
     /** This method is called from within the constructor to
-     * initialize the form.
-     */
+     * initialize the form.*/
     @SuppressWarnings("unchecked")
     // <editor-fold default state="collapsed" desc="Generated Code">
     private void initComponents() {
